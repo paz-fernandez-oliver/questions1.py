@@ -72,3 +72,5 @@ for _ in range(3):
     print()
 
 print(f"Tu puntaje final es: {puntaje:.1f}")
+
+hola
