@@ -28,7 +28,7 @@ correct_answers_index = [1, 2, 0, 3, 1]
 1. 
 2. 
 3. 
-
+puntaje= 0
 # El usuario deberá contestar 3 preguntas
 for _ in range(3):
  
@@ -52,11 +52,12 @@ for _ in range(3):
  # Se verifica si la respuesta es correcta
             if user_answer == correct_answers_index[question_index]:
                print("¡Correcto!")
+               puntaje += 1
                break
             else:
               print("Incorrecto. La respuesta correcta es:")
               print(answers[question_index][correct_answers_index[question_index]])
-        
+              puntaje -= 0.5
               break
         except ValueError:
            print("Respuesta no válida")
@@ -72,5 +73,3 @@ for _ in range(3):
     print()
 
 print(f"Tu puntaje final es: {puntaje:.1f}")
-
-hola
