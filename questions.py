@@ -32,36 +32,47 @@ puntaje= 0
 # El usuario deberá contestar 3 preguntas
 for _ in range(3):
  
+# Guardamos los elementos de manera aleatoria en una variable
+    test = random.choices(list(zip(questions, answers, correct_answers_index)))
+    for q, a, c in test:
+        que = q
+        ans = a
+        cor = c
+
  # Se selecciona una pregunta aleatoria
-    question_index = random.randint(0, len(questions)-1)
+    #question_index = random.randint(0, len(questions)-1)
 
  # Se muestra la pregunta y las respuestas posibles
-    print(questions[question_index])
-    for i, answer in enumerate(answers[question_index]):
-        print(f"{i + 1}. {answer}")
+    print(que)
+    for i, ans in enumerate(ans):
+        print(f"{i + 1}. {ans}")
+
+    #print(questions[question_index])
+    #for i, answer in enumerate(answers[question_index]):
+        #print(f"{i + 1}. {answer}")
 
  # El usuario tiene 2 intentos para responder  correctamente
     for intento in range(2):
-        try:
             user_answer = int(input("Respuesta: "))-1
 
-# Verificar si la respuesta está dentro del rango de opciones válidas
-            if user_answer < 0 or user_answer >= len(answers[question_index]):
-                raise ValueError("Respuesta no válida")
-
+# Verificar si la respuesta está dentro del rango 
+            if user_answer < 0 or user_answer >= 4:
+                print ("Respuesta no válida")
+                sys.exit(1)
  # Se verifica si la respuesta es correcta
-            if user_answer == correct_answers_index[question_index]:
+            if user_answer == cor:
                print("¡Correcto!")
                puntaje += 1
                break
             else:
               print("Incorrecto. La respuesta correcta es:")
-              print(answers[question_index][correct_answers_index[question_index]])
+              print(ans, cor)
+              #print(answers[question_index][correct_answers_index[question_index]])
               puntaje -= 0.5
               break
-        except ValueError:
-           print("Respuesta no válida")
-           sys.exit(1)
+   #except ValueError:
+           #print("Respuesta no válida")
+           #sys.exit(1)
 
  # Si el usuario no responde correctamente después de  2 intentos,
  # se muestra la respuesta correcta
@@ -72,4 +83,4 @@ for _ in range(3):
  # Se imprime un blanco al final de la pregunta
     print()
 
-print(f"Tu puntaje final es: {puntaje:.1f}")
+print("Tu puntaje final es:", puntaje,)
