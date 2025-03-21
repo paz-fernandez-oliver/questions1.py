@@ -23,11 +23,6 @@ answers = [
  ]
  # Índice de la respuesta correcta para cada pregunta, el el  mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
-6. 
-7. 
-1. 
-2. 
-3. 
 
 puntaje= 0
 
@@ -48,10 +43,10 @@ for _ in range(3):
 
  # El usuario tiene 2 intentos para responder  correctamente
     for intento in range(2):
-            user_answer = int(input("Respuesta: "))-1
+            user_answer = int((input("Respuesta: ")))
 
 # Verificar si la respuesta está dentro del rango 
-            if user_answer < 0 or user_answer >= 4:
+            if user_answer < 0 or user_answer > 4:
                 print ("Respuesta no válida")
                 sys.exit(1)
  # Se verifica si la respuesta es correcta
